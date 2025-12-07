@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/7/7d/Aha_logo.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - OTT</title>
+    <style>
+        body {
+            background-color: #111010; /* Dark background */
+            color: #f0f8ff; /* Default text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            margin: 0;
+            padding: 20px;
+        }
+        .signup-container {
+            width: 100%;
+            max-width: 450px; /* Max width for form */
+            padding: 30px;
+            background-color: #1c1c1c; /* Slightly lighter dark background for the form box */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .form-control {
+            background-color: #333;
+            color: #f0f8ff;
+            border: 1px solid #444;
+        }
+        .form-control:focus {
+            background-color: #333;
+            color: #f0f8ff;
+            border-color: #f4a004; /* Orange focus glow */
+            box-shadow: 0 0 0 0.25rem rgba(244, 160, 4, 0.25);
+        }
+        .btn-primary {
+            background-color: #f4a004;
+            border-color: #f4a004;
+        }
+        .btn-primary:hover {
+            background-color: #e59003;
+            border-color: #e59003;
+        }
+        .text-warning {
+            color: #f4a004 !important;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <div class="text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Aha_OTT_Logo.svg/800px-Aha_OTT_Logo.svg.png" alt="Aha OTT Logo" class="logo">
+            <h2 class="text-white mb-4">Create Your Account</h2>
+        </div>
+
+        <form>
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+            </div>
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required>
+            </div>
+            <div class="mb-3">
+                <label for="passwordInput" class="form-label">Password</label>
+                <input type="password" class="form-control" id="passwordInput" placeholder="Minimum 6 characters" required>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                <label class="form-check-label" for="termsCheck">I agree to the <a href="#" class="text-warning">Terms & Conditions</a></label>
+            </div>
+            <div class="d-grid gap-2 mb-3">
+                <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+            </div>
+            <p class="text-center">
+                Already have an account? <a href="#" class="text-warning">Log In Here</a>
+            </p>
+            <p class="text-center mt-3">
+                <a href="index.html" class="text-secondary text-decoration-none">← Back to Home</a>
+            </p>
+        </form>
+    </div>
+
+</body>
+</html>
