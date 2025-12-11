@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/7/7d/Aha_logo.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTT - My Bucket List</title>
+    <style>
+        /* CSS for the page */
+        body { 
+            background-color: #111010; 
+            color: #f0f8ff; 
+            padding-top: 70px; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column; 
+        }
+        .navbar { height: 70px; background-color: #111111; }
+        
+        /* >>> LOGO SIZE FIX <<< */
+        .navbar-brand img { 
+            width: 40px; 
+            height: 40px; 
+            padding: 5px;
+        }
+
+        .nav-link { font-size: 20px; padding: 15px; color: #b2aca8; }
+        .nav-link:hover, .nav-item .active { color: #f4a004; }
+        
+        /* Ensures the container grows to push the footer down */
+        .main-content {
+            flex-grow: 1;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        .section-title { 
+            color: aliceblue; 
+            margin-bottom: 30px; 
+            text-align: center; 
+        }
+        
+        /* List Item Styling */
+        .bucket-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #212529;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .bucket-item-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #f0f8ff;
+            /* Allow title to take up most of the space */
+            flex-grow: 1;
+            margin-right: 15px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .bucket-remove-btn {
+            background-color: #dc3545; 
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex-shrink: 0; /* Prevents button from shrinking */
+        }
+        .bucket-remove-btn:hover {
+            background-color: #c82333;
+        }
+
+        /* Empty State Styles */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            border: 2px dashed #f4a004;
+            border-radius: 10px;
+            margin-top: 50px;
+            background-color: #1a1a1a;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .empty-state h3 {
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+        .back-link { 
+            text-align: center; 
+            margin-top: 40px; 
+            font-size: 1.2rem; 
+        }
+        /* Footer ensures it stays at the bottom and has the correct background */
+        footer {
+            margin-top: auto;
+            padding: 20px 0;
+            background-color: #111111;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Aha_OTT_Logo.svg/800px-Aha_OTT_Logo.svg.png" alt="Aha OTT Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pg1.html">Frequently Watched</a></li>
+                    <li class="nav-item"><a class="nav-link" href="recent.html">Recent</a></li>
+                    <li class="nav-item"><a class="nav-link" href="toprated.html">Top Rated</a></li>
+                    <li class="nav-item"><a class="nav-link" href="favourites.html">Favourites</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="bucketlist.html">My Bucket List 📝</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home.html#about-section">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="form.html">Signup</a></li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <h2 class="section-title">📝 My Movie Bucket List</h2>
+        
+        <div id="bucket-list-display">
+            </div>
+
+        <div class="back-link">
+            <a href="home.html" class="text-warning text-decoration-none">← Continue Browsing</a>
+        </div>
+    </div>
+
+    <footer class="container-fluid bg-dark text-white-50">
+        <div class="container py-3">
+            <div class="text-center pt-3 border-top border-secondary">
+                <p class="mb-0">&copy; 2025 OTT Refined Template. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Core JavaScript Logic for Displaying and Removing from Bucket List ---
+        
+        function getBucketList() {
+            const list = localStorage.getItem('bucketList');
+            return list ? JSON.parse(list) : [];
+        }
+
+        function saveBucketList(list) {
+            localStorage.setItem('bucketList', JSON.stringify(list));
+        }
+
+        // Global function for the onclick event
+        window.removeMovie = function(movieTitle) {
+            let list = getBucketList();
+            list = list.filter(title => title !== movieTitle);
+            saveBucketList(list);
+            renderBucketList();
+        }
+
+        function renderBucketList() {
+            const list = getBucketList();
+            const container = document.getElementById('bucket-list-display');
+            container.innerHTML = ''; 
+
+            if (list.length === 0) {
+                // Display the "Empty State" HTML
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>Nothing added yet!</h3>
+                        <p>Your movie bucket list is where you save films you want to watch next.</p>
+                        <p>Go back to the <a href="home.html" class="text-warning text-decoration-none fw-bold">Home Page</a> and click 'Add to Bucket List' on any movie poster to start building your list.</p>
+                    </div>
+                `;
+            } else {
+                // Display the list of movies using safer DOM manipulation
+                list.forEach(title => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'bucket-item';
+                    
+                    const removeButton = document.createElement('button');
+                    removeButton.className = 'bucket-remove-btn';
+                    removeButton.textContent = 'Remove';
+                    
+                    // Attach the click handler directly to the button element
+                    removeButton.onclick = function() {
+                        removeMovie(title);
+                    };
+
+                    const titleSpan = document.createElement('span');
+                    titleSpan.className = 'bucket-item-title';
+                    titleSpan.textContent = title;
+
+                    // Assemble the itemDiv
+                    itemDiv.appendChild(titleSpan);
+                    itemDiv.appendChild(removeButton);
+
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', renderBucketList);
+    </script>
+</body>
+</html>

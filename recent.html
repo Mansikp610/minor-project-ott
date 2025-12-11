@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/7/7d/Aha_logo.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTT - Recent Releases</title>
+    <style>
+        /* Base Styles */
+        body { 
+            background-color: #111010; 
+            color: #f0f8ff; 
+            padding-top: 70px; /* Space for fixed navbar */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Navbar Styles */
+        .navbar { 
+            height: 70px; 
+            background-color: #111111;
+        }
+        .navbar-brand img { 
+            width: 40px; 
+            height: 40px; 
+            padding: 5px;
+        }
+        .nav-link { 
+            font-size: 20px; 
+            padding: 15px; 
+            color: #b2aca8 !important; 
+        }
+        .nav-link:hover, .nav-item .active { 
+            color: #f4a004 !important; 
+        }
+
+        /* Gallery/Content Area */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px 0;
+        }
+        .section-title {
+            color: aliceblue;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .movie-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .movie-card-wrapper {
+            flex: 0 0 auto;
+            margin: 15px;
+            width: 200px;
+            position: relative;
+            transition: transform .3s ease-in-out;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #212121;
+        }
+        .movie-card img {
+            height: 300px;
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        .movie-card-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(244, 160, 4, 0.5);
+        }
+        .movie-info { 
+            padding: 10px; 
+            text-align: center; 
+        }
+        .movie-info h5 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .movie-info p {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin: 0;
+        }
+        
+        /* Button Styles */
+        .add-to-bucket-btn {
+            border: none;
+            width: 100%;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            cursor: pointer;
+            background-color: #f4a004;
+            color: #111010;
+            transition: background-color 0.3s;
+        }
+        .add-to-bucket-btn:hover { background-color: #ffc107; }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            background-color: #111111 !important;
+            padding: 20px 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .movie-card-wrapper {
+                width: 160px;
+                margin: 10px;
+            }
+            .movie-card img {
+                height: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Aha_OTT_Logo.svg/800px-Aha_OTT_Logo.svg.png" alt="Aha OTT Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pg1.html">Frequently Watched</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="recent.html">Recent</a></li>
+                    <li class="nav-item"><a class="nav-link" href="toprated.html">Top Rated</a></li>
+                    <li class="nav-item"><a class="nav-link" href="favourites.html">Favourites</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bucketlist.html">My Bucket List 📝</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home.html#about-section">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="form.html">Signup</a></li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <h2 class="section-title">✨ Recent Releases (12 Movies)</h2>
+        
+        <div class="movie-grid">
+            
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://assets.gadgets360cdn.com/pricee/assets/product/202510/Ek_Deewane_Ki_Deewaniyat_Poster_1761285001.jpg" alt="Ek Deewane Ki Deewaniyat">
+                </div>
+                <div class="movie-info">
+                    <h5>Ek Deewane Ki Deewaniyat</h5>
+                    <p>2024 | Romance</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('Ek Deewane Ki Deewaniyat')">Add to Bucket List</button>
+            </div>
+
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1VQMr361uhJeGLMcr_oSnsYARAoSgqnB6Hg&s" alt="The Darkest Hour">
+                </div>
+                <div class="movie-info">
+                    <h5>The Darkest Hour</h5>
+                    <p>2024 | Thriller</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('The Darkest Hour')">Add to Bucket List</button>
+            </div>
+
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://static01.nyt.com/images/2023/07/28/business/28strike-movies/28strike-movies-articleLarge.jpg?quality=75&auto=webp&disable=upscale" alt="Summer Blockbuster">
+                </div>
+                <div class="movie-info">
+                    <h5>Summer Blockbuster</h5>
+                    <p>2023 | Action</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('Summer Blockbuster')">Add to Bucket List</button>
+            </div>
+
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://qqcdnpictest.mxplay.com/pic/cc1f9610b1cc638cf9b60f305ee1b4d6/en/2x3/312x468/test_pic1759756606210_badged_1764824417248.webp" alt="The Hidden Truth">
+                </div>
+                <div class="movie-info">
+                    <h5>The Hidden Truth</h5>
+                    <p>2024 | Mystery</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('The Hidden Truth')">Add to Bucket List</button>
+            </div>
+
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ3PI_Xx3PF9pcsjClDv41P9hDphpsOtbUA&s" alt="Galaxy Quest">
+                </div>
+                <div class="movie-info">
+                    <h5>Galaxy Quest</h5>
+                    <p>2024 | Sci-Fi</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('Galaxy Quest')">Add to Bucket List</button>
+            </div>
+
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://assets.gqindia.com/photos/67c0685ba4d7ee5d3dfe6a93/master/w_1600%2Cc_limit/Radhe.jpg" alt="Radhe">
+                </div>
+                <div class="movie-info">
+                    <h5>Radhe</h5>
+                    <p>2021 | Action</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('Radhe')">Add to Bucket List</button>
+            </div>
+
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BZTAzODc1ZjUtNGQwZS00YTc2LTliNzQtMDdlNzllNmU5Yzk4XkEyXkFqcGc@._V1_.jpg" alt="The Forgotten Realm">
+                </div>
+                <div class="movie-info">
+                    <h5>The Forgotten Realm</h5>
+                    <p>2023 | Fantasy</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('The Forgotten Realm')">Add to Bucket List</button>
+            </div>
+            
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC/et00443704-hslglskrgz-portrait.jpg" alt="Bandra">
+                </div>
+                <div class="movie-info">
+                    <h5>Bandra</h5>
+                    <p>2024 | Thriller</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('Bandra')">Add to Bucket List</button>
+            </div>
+
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_xNq4GzE0kU8oF3s7iQW-0Vj2vW0Lq6m3cQ&s" alt="City of Shadows">
+                </div>
+                <div class="movie-info">
+                    <h5>City of Shadows</h5>
+                    <p>2024 | Crime, Drama</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('City of Shadows')">Add to Bucket List</button>
+            </div>
+            
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC/et00407788-pydqfjhjws-portrait.jpg" alt="Desert Run">
+                </div>
+                <div class="movie-info">
+                    <h5>Desert Run</h5>
+                    <p>2023 | Adventure, Drama</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('Desert Run')">Add to Bucket List</button>
+            </div>
+
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://akamaividz2.zee5.com/image/upload/w_336,h_504,c_scale,f_webp,q_auto:eco/resources/0-0-1z5797649/portrait/1920x7705d268d6804c443a94858e74d4cf4dd8386872cb61bf4894bbb27ea074b2ff7f4d0a020d59894737b2d4c0b72e876eba.jpg" alt="Salaar">
+                </div>
+                <div class="movie-info">
+                    <h5>Salaar</h5>
+                    <p>2023 | Action, Epic</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('Salaar')">Add to Bucket List</button>
+            </div>
+            
+            <div class="movie-card-wrapper">
+                <div class="movie-card">
+                    <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC/et00447585-jvmqqaffmf-portrait.jpg" alt="Galactic Odyssey">
+                </div>
+                <div class="movie-info">
+                    <h5>Galactic Odyssey</h5>
+                    <p>2023 | Sci-Fi</p>
+                </div>
+                <button class="add-to-bucket-btn" onclick="addToBucketList('Galactic Odyssey')">Add to Bucket List</button>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="container-fluid bg-dark text-white-50">
+        <div class="container py-3">
+            <div class="text-center pt-3 border-top border-secondary">
+                <p class="mb-0">&copy; 2025 OTT Refined Template. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Bucket List Functionality ---
+        function getBucketList() {
+            const list = localStorage.getItem('bucketList');
+            return list ? JSON.parse(list) : [];
+        }
+
+        function saveBucketList(list) {
+            localStorage.setItem('bucketList', JSON.stringify(list));
+        }
+
+        function addToBucketList(movieTitle) {
+            let list = getBucketList();
+            if (!list.includes(movieTitle)) {
+                list.push(movieTitle);
+                saveBucketList(list);
+                alert(`${movieTitle} has been added to your Bucket List!`);
+            } else {
+                alert(`${movieTitle} is already in your Bucket List.`);
+            }
+        }
+    </script>
+</body>
+</html>

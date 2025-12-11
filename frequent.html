@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/7/7d/Aha_logo.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTT - Frequently Watched</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #111010;
+            color: #f0f8ff;
+            padding-top: 70px;
+        }
+        
+        /* Navigation Bar Styles */
+        .navbar {
+            height: 70px;
+            background-color: #111111;
+        }
+        .navbar-brand img {
+            width: 60px;
+            height: 60px;
+            padding: 5px;
+        }
+        .nav-link {
+            font-size: 20px;
+            padding: 15px;
+            color: #b2aca8 !important;
+        }
+        .nav-link:hover, .nav-item .active {
+            color: #f4a004 !important;
+        }
+
+        /* Content Sections (Movie Galleries) */
+        .section-title {
+            color: aliceblue;
+            margin-bottom: 30px;
+            padding-left: 15px; 
+            text-align: center;
+        }
+        .movie-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 0 15px;
+        }
+        .movie-card {
+            margin: 15px 10px;
+            transition: transform .5s ease-in-out;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 150px; /* Base width for cards */
+        }
+        .movie-card img {
+            height: 225px; /* Aspect ratio maintained */
+            width: 150px;
+            display: block;
+            object-fit: cover;
+        }
+        /* Adjust card size for tablets and larger screens */
+        @media (min-width: 576px) {
+            .movie-card {
+                width: 180px;
+            }
+            .movie-card img {
+                height: 270px;
+                width: 180px;
+            }
+        }
+        @media (min-width: 768px) {
+            .movie-card {
+                width: 200px;
+            }
+            .movie-card img {
+                height: 300px;
+                width: 200px;
+            }
+        }
+        .movie-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 10px 20px rgba(244, 160, 4, 0.5);
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Aha_OTT_Logo.svg/800px-Aha_OTT_Logo.svg.png" alt="Aha OTT Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="frequent.html">Frequently Watched</a></li>
+                    <li class="nav-item"><a class="nav-link" href="recent.html">Recent</a></li>
+                    <li class="nav-item"><a class="nav-link" href="toprated.html">Top Rated</a></li>
+                    <li class="nav-item"><a class="nav-link" href="favourites.html">Favourites</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about-section">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="form.html">Signup</a></li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h2 class="section-title">🎬 Frequently Watched</h2>
+        <div class="movie-gallery">
+            <div class="movie-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjQsJRH73QaONwT-8buVcyBQ7p2jMsAMA4JQ&s" alt="Movie poster for Bholaa"></div>
+            <div class="movie-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsf5jA3Ll6_6N1EAo9L5lBJJxDEXbRCGPHiw&usqp=CAU" alt="Movie poster for a comedy film"></div>
+            <div class="movie-card"><img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC/et00407893-rzxpbdudgc-portrait.jpg" alt="Movie poster for a romantic drama"></div>
+            <div class="movie-card"><img src="https://www.projectorreviews.com/wp-content/uploads/2025/04/Havoc.jpg" alt="Movie poster for Tomb Raider"></div>
+            <div class="movie-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQDEAkhWO-DCB-IatMYC9wxjTuWY6z0ffIlA&usqp=CAU" alt="Movie poster for a thriller"></div>
+            <div class="movie-card"><img src="https://images.jdmagicbox.com/movies/centralized_154396132023_06_26_05_46_02_220.jpg" alt="Movie poster for a family drama"></div>
+            <div class="movie-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKdkadn1atH9lceiTBJrUFIwXylOamRmAhfQ&usqp=CAU" alt="Movie poster for a fantasy film"></div>
+            <div class="movie-card"><img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC/et00447585-jvmqqaffmf-portrait.jpg" alt="Movie poster for a sci-fi adventure"></div>
+            <div class="movie-card"><img src="https://akamaividz2.zee5.com/image/upload/w_336,h_504,c_scale,f_webp,q_auto:eco/resources/0-0-1z5797649/portrait/1920x7705d268d6804c4443a94858e74d4cf4dd8386872cb61bf4894bbb27ea074b2ff7f4d0a020d59894737b2d4c0b72e876eba.jpg" alt="Movie poster for Salaar"></div>
+            <div class="movie-card"><img src="https://qqcdnpictest.mxplay.com/pic/6574fa0a788a4908e9e5927cbbfaf378/en/2x3/320x480/8f6b8d2e87dafee76f1a628ae0b9e3bf_1280x1920.webp" alt="Movie poster for an animated film"></div>
+            
+            <div class="movie-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_x5v0tH4jGvPq_K1VwB7e5fH_Q2i-T9X0wQ&s" alt="Movie poster for a political thriller"></div>
+            <div class="movie-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7O5wR4dG_8Oq3_e3Yg7y3nF1Jb5oP-z9-wQ&s" alt="Movie poster for a light-hearted drama"></div>
+            <div class="movie-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY4Z-6Y6B_sR8b5T8sN3b2d1O1P-T4w0b6A&s" alt="Movie poster for a suspense thriller"></div>
+            <div class="movie-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjQsJRH73QaONwT-8buVcyBQ7p2jMsAMA4JQ&s" alt="Movie poster for an indie film"></div>
+            <div class="movie-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsf5jA3Ll6_6N1EAo9L5lBJJxDEXbRCGPHiw&usqp=CAU" alt="Movie poster for a sports movie"></div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html" class="text-warning text-decoration-none">← Back to Home Page</a>
+        </div>
+    </div>
+
+    <footer class="container-fluid bg-dark text-white-50 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h4 class="text-white">About Us</h4>
+                    <a href="#" class="d-block text-warning-emphasis my-1">Contact Details</a>
+                    <a href="#" class="d-block text-warning-emphasis my-1">Career</a>
+                    <a href="#" class="d-block text-warning-emphasis my-1">Need Help / Visit Help Center</a>
+                    <a href="#" class="d-block text-warning-emphasis my-1">Share Feedback</a>
+                    <a href="#" class="d-block text-warning-emphasis my-1">Language Settings</a>
+                </div>
+    
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h4 class="text-white">Start Watching</h4>
+                    <a href="form.html" class="sign-up-link text-warning fw-bold text-decoration-underline d-block mb-3">Click Here to Login/Sign Up</a>
+                    <p class="text-white-50">Stream thousands of movies and shows instantly.</p>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <h4 class="text-white">Connect With Us</h4>
+                    <a href="https://www.instagram.com/" target="_blank" class="social-link">
+                        <span class="me-2">Instagram</span> 
+                        <img src="https://img.freepik.com/free-vector/instagram-icon_1057-2227.jpg" alt="Instagram logo" style="height:30px; width:30px; border-radius: 5px;">
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" class="social-link">
+                        <span class="me-2">Facebook</span> 
+                        <img src="https://img.freepik.com/premium-psd/facebook-logo-blue-circle_705838-12823.jpg?semt=ais_hybrid&w=740&q=80" alt="Facebook logo" style="height:30px; width:30px; border-radius: 5px;">
+                    </a>
+                </div>
+            </div>
+            <div class="text-center pt-3 border-top border-secondary">
+                <p class="mb-0">&copy; 2025 OTT Refined Template. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
